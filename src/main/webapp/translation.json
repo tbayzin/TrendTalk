@@ -1,0 +1,147 @@
+{
+  "app": {
+    "title": "TrendTalk"
+  },
+  "navigation": {
+    "toggle": "Toggle navigation",
+    "home": "Home",
+    "entities": "Entities"
+  },
+  "home": {
+    "index": {
+      "headline": "Welcome to your new app!",
+      "text": "Your app was created with <a href=\"https://bootify.io\" target=\"_blank\">Bootify.io</a> and can now be customized. If you are happy with the result, <strong>please recommend us to other developers</strong> - so Bootify.io can grow further.",
+      "swagger": {
+        "text": "Swagger is",
+        "link": "available here"
+      },
+      "exploreEntities": "Explore your entities"
+    }
+  },
+  "error": {
+    "page": {
+      "headline": "Error",
+      "message": "The page you are looking for is not available right now."
+    }
+  },
+  "topic": {
+    "list": {
+      "headline": "Topics",
+      "createNew": "Create new Topic",
+      "empty": "No Topics could be found.",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add": {
+      "headline": "Add Topic",
+      "back": "Back to list"
+    },
+    "id": {
+      "label": "Id"
+    },
+    "topicName": {
+      "label": "Topic Name"
+    },
+    "edit": {
+      "headline": "Edit Topic",
+      "back": "Back to list"
+    },
+    "create": {
+      "success": "Topic was created successfully."
+    },
+    "update": {
+      "success": "Topic was updated successfully."
+    },
+    "delete": {
+      "success": "Topic was removed successfully."
+    }
+  },
+  "user": {
+    "list": {
+      "headline": "Users",
+      "createNew": "Create new User",
+      "empty": "No Users could be found.",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add": {
+      "headline": "Add User",
+      "back": "Back to list"
+    },
+    "id": {
+      "label": "Id"
+    },
+    "userName": {
+      "label": "User Name"
+    },
+    "password": {
+      "label": "Password"
+    },
+    "edit": {
+      "headline": "Edit User",
+      "back": "Back to list"
+    },
+    "create": {
+      "success": "User was created successfully."
+    },
+    "update": {
+      "success": "User was updated successfully."
+    },
+    "delete": {
+      "success": "User was removed successfully."
+    }
+  },
+  "guest": {
+    "list": {
+      "headline": "Guests",
+      "createNew": "Create new Guest",
+      "empty": "No Guests could be found.",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add": {
+      "headline": "Add Guest",
+      "back": "Back to list"
+    },
+    "id": {
+      "label": "Id"
+    },
+    "guestName": {
+      "label": "Guest Name"
+    },
+    "edit": {
+      "headline": "Edit Guest",
+      "back": "Back to list"
+    },
+    "create": {
+      "success": "Guest was created successfully."
+    },
+    "update": {
+      "success": "Guest was updated successfully."
+    },
+    "delete": {
+      "success": "Guest was removed successfully."
+    }
+  },
+  "exists": {
+    "topic": {
+      "topicName": "This Topic Name is already taken."
+    },
+    "user": {
+      "userName": "This User Name is already taken."
+    }
+  },
+  "select": {
+    "empty": {
+      "label": "Please select"
+    }
+  },
+  "delete": {
+    "confirm": "Do you really want to delete this element? This cannot be undone."
+  },
+  "operation": {
+    "success": "Your operation was successful."
+  },
+  "required": "Please provide a value.",
+  "maxlength": "Your value must have a length of less then ${max} characters."
+}
