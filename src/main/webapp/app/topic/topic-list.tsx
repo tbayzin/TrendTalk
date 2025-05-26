@@ -73,6 +73,7 @@ export default function TopicList() {
                 <Link to={'/topics/edit/' + topic.id} className="btn btn-sm btn-secondary">{t('topic.list.edit')}</Link>
                 <span> </span>
                 <button type="button" onClick={() => confirmDelete(topic.id!)} className="btn btn-sm btn-secondary">{t('topic.list.delete')}</button>
+                <Link to={`/topics/${topic.id}/chat`} className="btn btn-sm btn-primary ms-2">Chat</Link>
               </div>
             </td>
           </tr>
