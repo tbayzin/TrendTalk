@@ -52,11 +52,12 @@ public class GuestResource {
         return ResponseEntity.ok(id);
     }
 
+    /*
     @DeleteMapping("/{id}")
     @ApiResponse(responseCode = "204")
     public ResponseEntity<Void> deleteGuest(@PathVariable(name = "id") final Long id) {
         guestService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
+     */
 }

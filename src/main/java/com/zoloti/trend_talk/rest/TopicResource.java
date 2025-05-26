@@ -52,11 +52,13 @@ public class TopicResource {
         return ResponseEntity.ok(id);
     }
 
+    /*
     @DeleteMapping("/{id}")
     @ApiResponse(responseCode = "204")
     public ResponseEntity<Void> deleteTopic(@PathVariable(name = "id") final Long id) {
         topicService.delete(id);
         return ResponseEntity.noContent().build();
     }
+     */
 
 }

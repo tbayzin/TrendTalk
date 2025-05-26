@@ -1,7 +1,8 @@
+/*
 package com.zoloti.trend_talk.rest;
 
 import com.zoloti.trend_talk.model.UserDTO;
-import com.zoloti.trend_talk.service.UserService;
+//import com.zoloti.trend_talk.service.UserService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -60,3 +61,4 @@ public class UserResource {
     }
 
 }
+*/

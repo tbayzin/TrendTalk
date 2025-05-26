@@ -41,7 +41,7 @@ public @interface TopicTopicNameUnique {
         private final HttpServletRequest request;
 
         public TopicTopicNameUniqueValidator(final TopicService topicService,
-                final HttpServletRequest request) {
+                                             final HttpServletRequest request) {
             this.topicService = topicService;
             this.request = request;
         }
@@ -49,19 +49,24 @@ public @interface TopicTopicNameUnique {
         @Override
         public boolean isValid(final String value, final ConstraintValidatorContext cvContext) {
             if (value == null) {
-                // no value present
                 return true;
             }
-            @SuppressWarnings("unchecked") final Map<String, String> pathVariables =
-                    ((Map<String, String>)request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE));
-            final String currentId = pathVariables.get("id");
-            if (currentId != null && value.equalsIgnoreCase(topicService.get(Long.parseLong(currentId)).getTopicName())) {
-                // value hasn't changed
-                return true;
+
+            @SuppressWarnings("unchecked")
+            final Map<String, String> pathVariables =
+                    (Map<String, String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+
+            final String currentId = pathVariables != null ? pathVariables.get("id") : null;
+
+            if (currentId != null) {
+                String existingName = topicService.get(Long.parseLong(currentId)).getTopicName();
+                if (value.equalsIgnoreCase(existingName)) {
+                    return true;
+                }
             }
-            return !topicService.topicNameExists(value);
+
+            // Redis için uniq kontrol burada yapılır
+         return !topicService.topicNameExistsInRedis(value);
         }
-
     }
-
 }

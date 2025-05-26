@@ -9,11 +9,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.redis.core.index.Indexed;
 
 
-@Document
 @Getter
 @Setter
 public class User {
@@ -21,7 +19,6 @@ public class User {
     @Id
     private Long id;
 
-    @Indexed(unique = true)
     @NotNull
     @Size(max = 50)
     private String userName;

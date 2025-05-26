@@ -1,10 +1,10 @@
+/*
 package com.zoloti.trend_talk.model;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 
-import com.zoloti.trend_talk.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Constraint;
 import jakarta.validation.ConstraintValidator;
@@ -18,9 +18,9 @@ import java.util.Map;
 import org.springframework.web.servlet.HandlerMapping;
 
 
-/**
- * Validate that the userName value isn't taken yet.
- */
+
+ //Validate that the userName value isn't taken yet.
+
 @Target({ FIELD, METHOD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -65,3 +65,6 @@ public @interface UserUserNameUnique {
     }
 
 }
+
+
+*/
