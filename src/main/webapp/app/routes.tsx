@@ -5,6 +5,7 @@ import Home from './home/home';
 import TopicList from './topic/topic-list';
 import TopicAdd from './topic/topic-add';
 import TopicEdit from './topic/topic-edit';
+import TopicChat from './chat/topic-chat';
 import UserList from './user/user-list';
 import UserAdd from './user/user-add';
 import UserEdit from './user/user-edit';
@@ -23,6 +24,7 @@ export default function AppRoutes() {
         { path: 'topics', element: <TopicList /> },
         { path: 'topics/add', element: <TopicAdd /> },
         { path: 'topics/edit/:id', element: <TopicEdit /> },
+        { path: 'topics/:id/chat', element: <TopicChat /> },
         { path: 'users', element: <UserList /> },
         { path: 'users/add', element: <UserAdd /> },
         { path: 'users/edit/:id', element: <UserEdit /> },

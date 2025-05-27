@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/trendtalk}
+    redis:
+      url: ${UPSTASH_REDIS_URL:redis://default:AUsmAAIjcDEwZjg0NTRkOTE0ZTA0OGM5OTE5ZDVmNjQ4YTM5OTYyNHAxMA@driving-feline-19238.upstash.io:6379}
+      password: ${UPSTASH_REDIS_TOKEN:}
+
+error:
+  handling:
+    http-status-in-json-response: true
+    exception-logging: NO_LOGGING
+    full-stacktrace-http-statuses: 5xx
+    log-levels:
+      5xx: ERROR
+    codes:
+      TopicTopicNameUnique: TOPIC_TOPIC_NAME_UNIQUE
+      UserUserNameUnique: USER_USER_NAME_UNIQUE
+
+springdoc:
+  pathsToMatch: /api/**
