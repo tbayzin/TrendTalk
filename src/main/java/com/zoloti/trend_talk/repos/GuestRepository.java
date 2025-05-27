@@ -18,6 +18,7 @@ public class GuestRepository {
     public void save(Guest guest) {
         String key = GUEST_KEY_PREFIX + guest.getId();
         redisTemplate.opsForValue().set(key, guest);
+        redisTemplate.opsForSet().add("guest:username", guest.getGuestName());
     }
 
     // Guest bulma

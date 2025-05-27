@@ -22,6 +22,5 @@ public class Guest implements Serializable {
     private String guestName;
     private OffsetDateTime dateCreated;
     private OffsetDateTime lastUpdated;
-    private Integer version;
 
 }
