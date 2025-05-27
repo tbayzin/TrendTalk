@@ -1,3 +1,4 @@
+/*
 package com.zoloti.trend_talk.service;
 
 import com.zoloti.trend_talk.domain.User;
@@ -13,9 +14,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PrimarySequenceService primarySequenceService;
 
-    public UserService(final UserRepository userRepository) {
+
+    public UserService(final UserRepository userRepository,final PrimarySequenceService primarySequenceService) {
         this.userRepository = userRepository;
+        this.primarySequenceService = primarySequenceService;
     }
 
     public List<UserDTO> findAll() {
@@ -66,3 +70,4 @@ public class UserService {
     }
 
 }
+*/

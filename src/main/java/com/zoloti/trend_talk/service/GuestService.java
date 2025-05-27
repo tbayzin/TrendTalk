@@ -4,59 +4,61 @@ import com.zoloti.trend_talk.domain.Guest;
 import com.zoloti.trend_talk.model.GuestDTO;
 import com.zoloti.trend_talk.repos.GuestRepository;
 import com.zoloti.trend_talk.util.NotFoundException;
-import java.util.List;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class GuestService {
 
     private final GuestRepository guestRepository;
+    private final PrimarySequenceService primarySequenceService;
 
-    public GuestService(final GuestRepository guestRepository) {
+    public GuestService(final GuestRepository guestRepository, final PrimarySequenceService primarySequenceService) {
         this.guestRepository = guestRepository;
+        this.primarySequenceService = primarySequenceService;
     }
 
     public List<GuestDTO> findAll() {
-        final List<Guest> guests = guestRepository.findAll(Sort.by("id"));
-        return guests.stream()
-                .map(guest -> mapToDTO(guest, new GuestDTO()))
-                .toList();
+        List<GuestDTO> guestDTOs = new ArrayList<>();
+        return guestDTOs;
     }
 
     public GuestDTO get(final Long id) {
-        return guestRepository.findById(id)
-                .map(guest -> mapToDTO(guest, new GuestDTO()))
-                .orElseThrow(NotFoundException::new);
+        Guest guest = guestRepository.findById(id);
+        if (guest == null) {
+            throw new NotFoundException();
+        }
+        return mapToDTO(guest, new GuestDTO());
     }
 
     public Long create(final GuestDTO guestDTO) {
         final Guest guest = new Guest();
         mapToEntity(guestDTO, guest);
-        return guestRepository.save(guest).getId();
+        if (guest.getId() == null) {
+            guest.setId(primarySequenceService.getNextValue());
+        }
+        guestRepository.save(guest);
+        return guest.getId();
     }
 
     public void update(final Long id, final GuestDTO guestDTO) {
-        final Guest guest = guestRepository.findById(id)
-                .orElseThrow(NotFoundException::new);
+        Guest guest = guestRepository.findById(id);
+        if (guest == null) {
+            throw new NotFoundException();
+        }
         mapToEntity(guestDTO, guest);
         guestRepository.save(guest);
     }
 
-    public void delete(final Long id) {
-        guestRepository.deleteById(id);
-    }
-
     private GuestDTO mapToDTO(final Guest guest, final GuestDTO guestDTO) {
         guestDTO.setId(guest.getId());
-        guestDTO.setGuestName(guest.getGuestName());
         return guestDTO;
     }
 
     private Guest mapToEntity(final GuestDTO guestDTO, final Guest guest) {
-        guest.setGuestName(guestDTO.getGuestName());
+        guest.setId(guestDTO.getId());
         return guest;
     }
-
 }
